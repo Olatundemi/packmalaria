@@ -1,0 +1,13 @@
+The goal of packmalaria is to (This will be updated as in due cause)
+
+## Installation
+
+You can install the development version of packmalaria using devtools::install_github("olatundemi/packmalaria")
+
+
+## basic example code
+
+library(packmalaria)
+
+results_df <- simulate_model(gen, params, n_particles = 10, time_steps = 365)
+

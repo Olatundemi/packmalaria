@@ -1,0 +1,28 @@
+Package: packmalaria
+Title: Infectious disease modelling and simulation
+Version: 0.0.0.9000
+Authors@R: 
+    person("Olatunde", "Ibrahim", , "oibrahim@imperial.ac.uk", role = c("aut", "cre"))
+Description: Packmalaria aims to achieve simuation of realistic scenarios of malaria transmission
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    dust2,
+    odin2,
+    dplyr,
+    decor,
+    pkgbuild,
+    pkgload,
+    brio
+LinkingTo: 
+    cpp11,
+    dust2,
+    monty
+Remotes: mrc-ide/dust2, mrc-ide/monty
+URL: https://github.com/Olatundemi/packmalaria
+BugReports: https://github.com/Olatundemi/packmalaria/issues
+#Suggests: 
+    #testthat (>= 3.0.0)
+#Config/testthat/edition: 3
