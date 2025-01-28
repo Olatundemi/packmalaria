@@ -1,4 +1,4 @@
-The goal of packmalaria is to (This will be updated as in due cause)
+This an experimental malaria model incorporating human sensitivity and resistance to malaria parasite (This will be updated as in due cause)
 
 ## Installation
 

@@ -16,25 +16,25 @@ initialize_system <- function(gen, params, n_particles = 2) {
 
 
 simulate_model <- function(gen, params, n_particles = 10, time_steps = 365, output_format = "dataframe") {
-  # Initialize the system
+  # Initializing the system
   sys <- initialize_system(gen, params, n_particles)
 
-  # Run the simulation for all time steps
+  # Running the simulation for all time steps
   output <- dust2::dust_system_simulate(sys, 1:time_steps)
 
-  # Calculate mean across particles for each state variable at each time step
+  # mean across particles for each state variable at each time step
   mean_output <- apply(output, c(1, 3), mean)  # Mean across the second dimension (particles)
 
-  # Convert to a dataframe
-  results_df <- as.data.frame(t(mean_output))  # Transpose to align time with rows
+  # Converting to a dataframe
+  results_df <- as.data.frame(t(mean_output))  # Transposing to align time with rows
 
-  # Assign column names based on state variables
+  # column names based on state variables
   colnames(results_df) <- c("Sr", "Ss", "Ir", "Is", "R", "X", "Y")
 
-  # Add a time column
+  # Adding a time column
   results_df$time <- 1:time_steps
 
-  # Add derived variables
+  # Adding derived variables
   results_df <- results_df %>%
     mutate(
       Nh = Sr + Ss + Ir + Is + R,
@@ -43,7 +43,7 @@ simulate_model <- function(gen, params, n_particles = 10, time_steps = 365, outp
       prevalence_mosquitoes = Y / Nv
     )
 
-  # Return results
+  # Returning results
   if (output_format == "dataframe") {
     return(results_df)
   } else {

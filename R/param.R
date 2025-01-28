@@ -1,4 +1,4 @@
-# Define parameters
+# Defining parameters
 params <- list(
   mu = 1 / (70 * 365),
   rho = 0.7,

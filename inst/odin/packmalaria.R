@@ -1,7 +1,7 @@
 # Define the model using odin2
 gen <- odin2::odin({
 
-  # Initial Conditions
+  # Specifying Initial Conditions
   initial(Sr) <- 0.7 * Nh0     # Initial number of resistant susceptible humans
   initial(Ss) <- 0.2 * Nh0     # Initial number of sensitive susceptible humans
   initial(Ir) <- 0.05 * Nh0    # Initial number of resistant infected humans
@@ -31,10 +31,10 @@ gen <- odin2::odin({
   beta_r <- parameter(0.0044)      # Infection rate from mosquitoes to resistant humans
   beta_s <- parameter(0.0066)      # Infection rate from mosquitoes to sensitive humans
   gamma_r <- parameter(1 / 365)    # Recovery rate for resistant humans
-  gamma_s <- parameter(1 / 100)    # Recovery rate for sensitive humans
+  gamma_s <- parameter(1 / 100)    # Recovery rate fhumans becoming susceptible againor sensitive humans
   alpha_r <- parameter(0.0044)     # Infection rate from resistant humans to mosquitoes
   alpha_s <- parameter(0.0062)     # Infection rate from sensitive humans to mosquitoes
-  omega <- parameter(1 / (5 * 365)) # Waning immunity rate (humans becoming susceptible again)
+  omega <- parameter(1 / (5 * 365)) # Waning immunity rate ()
   eta <- parameter(1 / 15)         # Natural birth/death rate of mosquitoes
   lsr <- parameter(0.05)           # Rate of change from sensitive to resistant
   lrs <- parameter(0.03)           # Rate of change from resistant to sensitive
