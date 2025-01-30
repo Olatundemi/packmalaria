@@ -9,5 +9,5 @@ You can install the development version of packmalaria using devtools::install_g
 
 library(packmalaria)
 
-results_df <- simulate_model(gen, params, n_particles = 10, time_steps = 365)
+results_df <- simulate_model(n_particles = 10, time_steps = 365)
 
