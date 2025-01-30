@@ -23,6 +23,3 @@ LinkingTo:
 Remotes: mrc-ide/dust2, mrc-ide/monty
 URL: https://github.com/Olatundemi/packmalaria
 BugReports: https://github.com/Olatundemi/packmalaria/issues
-#Suggests: 
-    #testthat (>= 3.0.0)# A test component to be incorporated
-#Config/testthat/edition: 3
