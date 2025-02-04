@@ -1,5 +1,5 @@
 #' @export
-simulate_model <- function(gen = NULL, params = get_default_params(), n_particles = 10, time_steps = 365, output_format = "dataframe") {
+simulate_model <- function(gen = NULL, params = get_default_params(), n_particles = 1, time_steps = 365, output_format = "dataframe") {
   # Use default generator if not provided
   if (is.null(gen)) {
     gen <- create_gen()
@@ -14,7 +14,6 @@ simulate_model <- function(gen = NULL, params = get_default_params(), n_particle
   # mean across particles for each state variable at each time step
   mean_output <- apply(output, c(1, 3), mean)  # Mean across the second dimension (particles)
 
-  # Converting to a dataframe
   results_df <- as.data.frame(t(mean_output))  # Transposing to align time with rows
 
   # column names based on state variables

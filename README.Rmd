@@ -11,3 +11,65 @@ library(packmalaria)
 
 results_df <- simulate_model(n_particles = 10, time_steps = 365)
 
+
+
+
+                   HUMAN POPULATION (Nh = Sr + Ss + Ir + Is + R)
+                   ---------------------------------------------
+                         New Births (rate μ Nh)
+                           /             \
+              (ρ μ Nh)  /                   \  ((1-ρ) μ Nh)
+                      /                         \
+                   [Sr]                         [Ss]
+                      ^  \                     /  ^
+                      |   \                   /   |
+       Conversion     |    \  lrs        lsr /    |  Conversion
+           (lsr)      |     \             /     |   (lrs)
+                      |      \           /      |
+                      |       \         /       |
+                      |        \       /        |
+                      |         \     /         |
+                      +--------->[Conversion] <--+
+                      |         /     \         |
+                      |        /       \        |
+                      |       /         \       |
+                      |      /           \      |
+                      |     /             \     |
+                      V    /               \    V
+                    [Ir] <-----> [Is]
+                     |             |
+   Infection from mosquitoes (via biting)       Infection from mosquitoes (via biting)
+         (from Sr)  (1-c) m βr Y/Nv              (from Ss)  (1-c) m βs Y/Nv
+                     |             |
+                     |  Recovery   |  Recovery
+                     | (γr Ir)     |  (γs Is)
+                      \           /
+                       \         /
+                        \       /
+                         \     /
+                          \   /
+                           [R]
+                            |
+                    Waning Immunity (ω) and Natural Death (μ)
+                            |
+         Re-enter as: ρ ω R  --------->  [Sr]
+                          (and)
+                      (1-ρ) ω R  --------->  [Ss]
+
+
+
+                 MOSQUITO POPULATION (Nv = X + Y)
+                 ------------------------------
+                           Mosquito Dynamics
+                           ----------------
+                          New Mosquitoes (η Nv)
+                                 |
+                                [X]   <-- Uninfected Mosquitoes
+                                 |
+               Infection from biting infected humans:
+                                 |   
+      (1-c) αr X Ir/Nh  and  (1-c) αs X Is/Nh  (combined)
+                                 V
+                                [Y]   <-- Infected Mosquitoes
+                                 |
+                         Natural death (η Y)
