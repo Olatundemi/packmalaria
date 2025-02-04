@@ -2,7 +2,7 @@
 simulate_model <- function(gen = NULL, params = get_default_params(), n_particles = 1, time_steps = 365, output_format = "dataframe") {
   # Use default generator if not provided
   if (is.null(gen)) {
-    gen <- create_gen()
+    gen <- model
   }
 
   # Initializing the system
@@ -23,13 +23,10 @@ simulate_model <- function(gen = NULL, params = get_default_params(), n_particle
   results_df$time <- 1:time_steps
 
   # Adding derived variables
-  results_df <- results_df %>%
-    mutate(
-      Nh = Sr + Ss + Ir + Is + R,
-      Nv = X + Y,
-      prevalence_humans = (Ir + Is) / Nh,
-      prevalence_mosquitoes = Y / Nv
-    )
+  results_df$Nh <- results_df$Sr + results_df$Ss + results_df$Ir + results_df$Is + results_df$R
+  results_df$Nv <- results_df$X + results_df$Y
+  results_df$prevalence_humans <- (results_df$Ir + results_df$Is) / results_df$Nh
+  results_df$prevalence_mosquitoes <- results_df$Y / results_df$Nv
 
   # Returning results
   if (output_format == "dataframe") {

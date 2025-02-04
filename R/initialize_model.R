@@ -1,10 +1,7 @@
-#' @importFrom dplyr %>%
-#' @importFrom dplyr mutate
-
 #' @export
 initialize_system <- function(gen = NULL, params = get_default_params(), n_particles = 2) {
   if (is.null(gen)) {
-    gen <- create_gen()
+    gen <- model
   }
 
   sys <- dust2::dust_system_create(
