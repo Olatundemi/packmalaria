@@ -1,27 +1,60 @@
 #' Get default model parameters
 #'
 #' This function returns the default parameter values for the malaria model.
+#' \code{get_params} specifies model default parameters
+#' @param beta_r Infection rate from mosquitoes to resistant humans
+#' @param beta_s Infection rate from mosquitoes to sensitive humans
+#' @param gamma_r Recovery rate for resistant humans
+#' @param gamma_s Recovery rate for sensitive humans
+#' @param omega  Waning immunity
+#' @param lsr Rate of change from sensitive to resistant
+#' @param lrs Rate of change from resistant to sensitive
+#' @param delta_sr Rate of change from sensitive infected to resistant infected
+#' @param delta_rs Rate of change from resistant infected to sensitive infected
+#' @param c0 Initial ITN coverage
+#' @param theta ITN decay rate
+#' @param lambda ITN replenishment rate
+#' @param rho Fraction of recovered returning to Sr
+#' @param mu Birth/Death rate
+#' @param N Total human population
 #'
 #' @export
-get_default_params <- function() {
-  list(
-    mu = 0, #1 / (70 * 365),
-    rho = 0.7,
-    beta_r = 0.002, #0.0044,
-    beta_s = 0.004, #0.0066,
-    gamma_r = 1/21,#1 / 365,
-    gamma_s = 1/14, #1 / 100,
-    alpha_r = 0.002, #0.0044,
-    alpha_s = 0.003, #0.0062,
-    omega = 0, #1 / (5 * 365),
-    eta = 1 / 15,
-    lsr = 0.005, #0.05,
-    lrs = 0.003, #0.03,
-    delta_sr = 0.005, #0.01,
-    delta_rs = 0.005, #0.01,
-    c = 0.5,
-    m = 2,
-    Nh0 = 1000000,#10,
-    Nv0 = 2000000#5
-  )
-}
+ get_params <- function(
+        beta_r = 0.1,
+        beta_s = 0.2,
+        gamma_r = 0.05,
+        gamma_s = 0.1,
+        omega = 1 / (1 * 365),  # Waning immunity (1 years)
+        lsr = 0.02,
+        lrs = 0.01,
+        delta_sr = 0.005,
+        delta_rs = 0.005,
+        c0 = 0.5,         # Initial ITN coverage (50%)
+        theta = 0.01,     # ITN decay rate
+        lambda = 0.005,   # ITN replenishment rate
+        rho = 0.2,        # Fraction of recovered returning to Sr
+        mu = 1 / (50 * 365),  # Birth/Death rate (~70-year lifespan)
+        N = 1000
+   ){
+
+   # set up param list
+   params <- list()
+
+   params$beta_r <- beta_r
+   params$beta_s <- beta_s
+   params$gamma_r <- gamma_r
+   params$gamma_s <- gamma_s
+   params$omega <- omega
+   params$lsr <- lsr
+   params$lrs <- lrs
+   params$delta_sr <- delta_sr
+   params$delta_rs <- delta_rs
+   params$c0 <- c0         # Initial ITN coverage (50%)
+   params$theta <- theta
+   params$lambda <- lambda
+   params$rho <- rho
+   params$mu <- mu
+   params$N <- N
+
+   return(params)
+  }

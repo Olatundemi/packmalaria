@@ -2,8 +2,8 @@ Package: packmalaria
 Title: Infectious disease modelling and simulation
 Version: 0.0.0.9000
 Authors@R: 
-    person("Olatunde", "Ibrahim", , "oibrahim@imperial.ac.uk", role = c("aut", "cre"))
-Description: Packmalaria aims to achieve simuation of realistic scenarios of malaria transmission
+    person("Olatunde", "Ibrahim", , "o.ibrahim@imperial.ac.uk", role = c("aut", "cre"))
+Description: Packmalaria is mechanistic model that aims to achieve simuation of realistic scenarios of malaria transmission. It presently incorporates human resistance and sensitivity in the modelling the disease transmission.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
