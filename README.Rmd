@@ -1,4 +1,4 @@
-This an experimental malaria model incorporating human sensitivity and resistance to malaria parasite (This will be updated as in due cause)
+This an experimental malaria model incorporating human sensitivity and resistance to malaria parasite (This will be updated in due cause)
 
 ## Installation
 
@@ -6,15 +6,15 @@ You can install the development version of packmalaria using devtools::install_g
 
 
 ## basic example code
-
-library(packmalaria)
-
-results_df <- simulate_model(n_particles = 10, time_steps = 365)
-
-
+# Run the simulation
+params <- get_params(c0 = 0.3, 
+                    lambda = 0.01)
+results_df <- simulate_model(time_steps = 365, params)
 
 
-                   HUMAN POPULATION (Nh = Sr + Ss + Ir + Is + R)
+
+
+                   HUMAN POPULATION (N = Sr + Ss + Ir + Is + R)
                    ---------------------------------------------
                          New Births (rate μ Nh)
                            /             \
@@ -56,20 +56,3 @@ results_df <- simulate_model(n_particles = 10, time_steps = 365)
                           (and)
                       (1-ρ) ω R  --------->  [Ss]
 
-
-
-                 MOSQUITO POPULATION (Nv = X + Y)
-                 ------------------------------
-                           Mosquito Dynamics
-                           ----------------
-                          New Mosquitoes (η Nv)
-                                 |
-                                [X]   <-- Uninfected Mosquitoes
-                                 |
-               Infection from biting infected humans:
-                                 |   
-      (1-c) αr X Ir/Nh  and  (1-c) αs X Is/Nh  (combined)
-                                 V
-                                [Y]   <-- Infected Mosquitoes
-                                 |
-                         Natural death (η Y)

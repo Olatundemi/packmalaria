@@ -6,7 +6,7 @@
 \alias{packmalaria-package}
 \title{packmalaria: Infectious disease modelling and simulation}
 \description{
-Packmalaria aims to achieve simuation of realistic scenarios of malaria transmission
+Packmalaria is mechanistic model that aims to achieve simuation of realistic scenarios of malaria transmission. It presently incorporates human resistance and sensitivity in the modelling the disease transmission.
 }
 \seealso{
 Useful links:
@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Olatunde Ibrahim \email{oibrahim@imperial.ac.uk}
+\strong{Maintainer}: Olatunde Ibrahim \email{o.ibrahim@imperial.ac.uk}
 
 }
 \keyword{internal}
